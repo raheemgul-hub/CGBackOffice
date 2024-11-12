@@ -1,0 +1,120 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+
+}
+.list{
+background-color: rgb(33, 198, 156);
+    height: 100%;
+    padding-top: 30px;
+    
+}
+
+/* Container for the review table */
+.review-table-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    /* Restricts width for better readability */
+    margin: auto;
+   
+}
+
+/* Header styling */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgb(49, 47, 145);
+    /* Underline for header */
+    padding-bottom: 10px;
+
+}
+
+
+.review-header h2 {
+    color:rgb(49, 47, 145) ;
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Button styling */
+.add-review-button {
+    background-color: rgb(49, 47, 145);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    letter-spacing: 3px;
+}
+
+.add-review-button:hover {
+    background-color:rgb(33, 198, 156);
+}
+/* Table styling */
+.review-table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.review-table thead {
+    background-color: rgb(49, 47, 145);
+    color: white;
+}
+
+.review-table th,
+.review-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.review-table tbody tr {
+    transition: background-color 0.3s;
+}
+
+.review-table tbody tr:hover {
+    background-color: #f9f9f9;
+ 
+}
+.icons{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.icons .delete{
+    cursor: pointer;
+    color: red;
+   width: 16px;
+    
+}
+.icons .delete:hover{
+    color: red;
+    width: 16px;
+    transform: scale(1.2);
+
+}
+.icons .edit{
+    cursor: pointer;
+    color: blue;
+    width: 16px;
+ 
+}
+.icons .edit:hover{
+    color: blue;
+    width: 16px;
+    transform: scale(1.2);
+}
+.add{
+    cursor: pointer;
+   letter-spacing: 5px;
+    width: 15px;
+ 
+}

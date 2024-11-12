@@ -1,0 +1,206 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.main {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+
+    background-color: rgb(33, 198, 156);
+}
+.mainn{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    background:#4ed9a8;
+    overflow: hidden;
+    height: 100vh;
+    
+}
+.navbar {
+    background-color: rgb(123, 223, 198);
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 10px 30px;
+}
+
+.header .logo img {
+    height: 40px;
+}
+
+.header .nav {
+    display: flex;
+    inline-size: auto;
+    gap: 20px;
+}
+
+.header .nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.header .nav button {
+    padding: 5px 10px;
+    background-color: rgb(49, 47, 145);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+/* login  page */
+.login-page {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 280px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.login-page .top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.login-page .top h2 {
+    line-height: 0px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.login-page .top p {
+    width: 200px;
+    text-align: center;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.login-page .input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-page .input input {
+    margin-bottom: 10px;
+    width: 260px;
+    padding: 8px;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login-page .input input::placeholder {
+    font-size: 12px;
+}
+
+.login-page .input .link {
+    text-decoration: none;
+    color: blue;
+    text-align: start;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    font-size: 12px;
+    margin-left: -140px;
+}
+
+.login-page .input button {
+    width: 280px;
+    padding: 10px;
+    background-color: rgb(49, 47, 145);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* sigin with google etc  */
+.bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.bottom p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.bottom .icons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+}
+
+.bottom .icons button {
+    padding: 5px 10px;
+    background: transparent;
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+
+}
+
+.bottom .icons i {
+    font-size: 10px;
+    padding-right: 10px;
+}
+
+.bottom .icons button:hover {
+    background-color: rgb(49, 47, 145);
+    color: white;
+}
+
+.bottom span {
+    font-size: 12px;
+    font-family: sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    opacity: 0.8;
+}
+
+.bottom span a {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    font-family: sans-serif;
+    padding: 30px;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    font-style: italic;
+    text-align: left;
+}
