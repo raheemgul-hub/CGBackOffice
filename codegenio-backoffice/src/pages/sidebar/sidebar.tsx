@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-import { FaSignInAlt, FaUserPlus, FaListAlt, FaSave, FaProjectDiagram } from 'react-icons/fa';
+import { FaSignInAlt, FaUserPlus, FaListAlt, FaSave, FaProjectDiagram, FaDollarSign } from 'react-icons/fa';
 import './Sidebar.css';
 
 const Sidebar = () => {
@@ -13,6 +13,8 @@ const Sidebar = () => {
                 <Link to="/saveproject"><li><FaSave /> Save Project</li></Link>
                 <Link to="/projectlist"><li><FaProjectDiagram /> Project List</li></Link>
                 <Link to="/updateproject"><li><FaProjectDiagram /> Project List</li></Link>
+                <Link to="/currencyadd"><li><FaDollarSign /> Add Currency</li></Link>
+                <Link to="/currencylist"><li><FaDollarSign /> Currency List</li></Link>
             </ul>
             <Outlet />
         </div>

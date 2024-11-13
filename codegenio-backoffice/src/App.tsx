@@ -9,6 +9,8 @@ import Sidebar from './pages/sidebar/sidebar'
 import ProjectList from './pages/projectlist/ProjectList'
 import UpdateProject from './pages/updateproject/UpdateProject'
 import UpdateClient from './pages/updateClient/UpdateClient'
+import CurrencyAdd from './pages/currencyAdd/CurrencyAdd'
+import CurrencyList from './pages/currencyList/CurrencyList'
 
 function App() {
  
@@ -24,6 +26,8 @@ function App() {
         <Route path="/projectlist" element={<ProjectList />}></Route>
         <Route path="/updateproject/:id/:client_id" element={<UpdateProject />}></Route>
         <Route path="/updateclient/:id" element={<UpdateClient />}></Route>
+        <Route path="/currencyadd" element={<CurrencyAdd />}></Route>
+        <Route path="/currencylist" element={<CurrencyList />}></Route>
       </Routes>
     </BrowserRouter>
 
