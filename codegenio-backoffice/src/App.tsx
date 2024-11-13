@@ -11,6 +11,7 @@ import UpdateProject from './pages/updateproject/UpdateProject'
 import UpdateClient from './pages/updateClient/UpdateClient'
 import CurrencyAdd from './pages/currencyAdd/CurrencyAdd'
 import CurrencyList from './pages/currencyList/CurrencyList'
+import CurrencyUpdate from './pages/currency-update/CurrencyUpdate'
 
 function App() {
  
@@ -28,6 +29,7 @@ function App() {
         <Route path="/updateclient/:id" element={<UpdateClient />}></Route>
         <Route path="/currencyadd" element={<CurrencyAdd />}></Route>
         <Route path="/currencylist" element={<CurrencyList />}></Route>
+        <Route path="/currencyupdate/:id" element={<CurrencyUpdate />}></Route>
       </Routes>
     </BrowserRouter>
 

@@ -49,7 +49,7 @@ function CurrencyList() {
             <div className="review-table-container">
                 <div className="review-header">
                     <h2>Currency List</h2>
-                    <Link to="/addcurrency">
+                    <Link to="/currencyadd">
                         <button className="add-review-button">Add Currency<i className="fa-solid fa-plus add"></i></button>
                     </Link>
                 </div>
@@ -75,7 +75,7 @@ function CurrencyList() {
                                 <td>
                                     <div className="icons">
                                         <DeleteCurrency id={data.id} token={token} />
-                                        <Link to={`/updateclient/${data.id}`}>
+                                        <Link to={`/currencyupdate/${data.id}`}>
                                             <i className="fa-solid fa-pen-to-square update"></i>
                                         </Link>
                                     </div>
