@@ -4,15 +4,17 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { LoginProps } from "../../interfaces/Login_Service";
 
 function Login() {
 
     // initializations 
-    const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const [formData] = useState<IData[]>([]);
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<LoginProps>();
+    const [formData] = useState<any>([]);
     const navigate = useNavigate();
     const Base_URL = 'https://mgmt-api.codegenio.com/api'
 
+    // set data to backend
     const formSubmit = (data: any) => {
         const userRequest = axios.post(Base_URL + '/public/login', {
             email: data.email,
@@ -27,11 +29,12 @@ function Login() {
                 alert(response.data.msg);
                 navigate("/clientlist");
                 localStorage.setItem("token", response.data.data.token);
+
                 formData.push(
                     {
                         email: response.data.data.email,
-                        password: ""
-                    }
+                        password:""
+                                     }
                 )
                 localStorage.setItem("Data", JSON.stringify(formData))
 
@@ -41,7 +44,7 @@ function Login() {
         })
 
     };
-    
+
 
     return (
         <div className="main">
@@ -50,8 +53,9 @@ function Login() {
                 <div className="logo"><img src="https://codegenio.com/images/logo.svg" alt="logo" /></div>
                 <div className="nav">
                     <i className="fa-solid fa-globe"></i>
-                    <Link to="/">SignUp</Link>
-                    <button type="button">Request Demo</button>
+                    <Link to="/sidebar">
+                        <button type="button"><i className="fa-solid fa-bars"></i></button>
+                    </Link>
                 </div>
             </div>
             {/* login page */}
@@ -109,8 +113,4 @@ function Login() {
     )
 }
 export default Login
-export interface IData {
-    
-    email: string;
-    password: string;
-}
+

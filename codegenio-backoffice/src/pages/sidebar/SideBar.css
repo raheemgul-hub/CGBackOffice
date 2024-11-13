@@ -1,0 +1,45 @@
+/* Sidebar.css */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    z-index: 100;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px 20px;
+}
+
+.sidebar-menu li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    background-color: #575757;
+}
+
+.sidebar-menu li a svg {
+    margin-right: 10px;
+    /* Space between icon and text */
+    font-size: 20px;
+    /* Icon size */
+}
+
+.sidebar-menu li a.active {
+    background-color: #007bff;
+    /* Active link color */
+}

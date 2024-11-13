@@ -1,12 +1,20 @@
-import { Link } from "react-router-dom"
-import "./ClientList.css"
+// ClientList.tsx
+import { Link } from "react-router-dom";
+import "./ClientList.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import DeleteClient from "../deleteClient/DeleteClient";
+import { ClientListProps } from "../../interfaces/Client_List_Service";
+import ClientActivate from "../clientActivate/ClientActivate";
 function ClientList() {
-    const Base_URL = 'https://mgmt-api.codegenio.com/api'
-    const RelativePath = '/admin/client/list'
-    const [users, setUsers] = useState([]);
+
+    // initializations 
+    const Base_URL = 'https://mgmt-api.codegenio.com/api';
+    const RelativePath = '/admin/client/list';
+    const [users, setUsers] = useState<ClientListProps[]>([]);
     const [token, setToken] = useState("");
+
+    //get token from local storage
     useEffect(() => {
         const storedData = localStorage.getItem("token");
         if (storedData) {
@@ -14,49 +22,25 @@ function ClientList() {
         }
     }, []);
 
+
+    // get data from backend
     useEffect(() => {
         if (token) {
-            const usersReq = axios.get(Base_URL + RelativePath, {
+            axios.get(Base_URL + RelativePath, {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
-            });
-
-            usersReq.then((response) => {
-                if (response.data.success === true) {
+            }).then((response) => {
+                if (response.data.success) {
                     setUsers(response.data.data.data);
-                    console.log(response)
+                    console.log(response);
                 } else {
                     console.log('Something is wrong with backend server');
                 }
-
             });
-
         }
     }, [token]);
 
-
-    const handledelete = (id: any) => {
-        const userRequest = axios.post(Base_URL + '/admin/client/delete' , {
-            id: id
-        }, {
-            headers: {
-                'Authorization': 'Bearer ' + token
-            }
-        })
-        
-            userRequest.then((response) => {
-                if (response.data.success === true) {
-                    alert(response.data.msg);
-                    window.location.reload();
-                    console.log("response2",response)
-                } else {
-                    alert(response.data.errors.general);
-                    console.log("response3", response)
-                }
-            })
-        
-    }
 
     return (
         <div className="list">
@@ -66,8 +50,6 @@ function ClientList() {
                     <Link to="/addclient">
                         <button className="add-review-button">Add Client<i className="fa-solid fa-plus add"></i></button>
                     </Link>
-
-
                 </div>
                 <table className="review-table">
                     <thead>
@@ -75,10 +57,11 @@ function ClientList() {
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th> Contact No</th>
+                            <th>Contact No</th>
                             <th>Whatsapp No</th>
                             <th>Source</th>
                             <th>Actions</th>
+                            <th> Activate Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,20 +73,27 @@ function ClientList() {
                                 <td>{data.contact_1}</td>
                                 <td>{data.whatsapp_contact}</td>
                                 <td>{data.source}</td>
-                                <td>{
+                                <td>
                                     <div className="icons">
-                                        <i onClick={() => {handledelete(data.id) }} className="fa-solid fa-trash-can delete">
-                                        </i><i className="fa-solid fa-pen-to-square edit"></i>
-                                    </div>}
+                                        <DeleteClient id={data.id} token={token} />
+                                        <Link to={`/updateclient/${data.id}`}>
+                                            <i className="fa-solid fa-pen-to-square update"></i>
+                                        </Link>
+                                    </div>
                                 </td>
-
+                                <td>
+                                    <div className="icons">
+                                        <ClientActivate id={data.id} token={token} />
+                                        {/* <ProjectDeactivate id={project.id} token={token} /> */}
+                                    </div>
+                                </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
         </div>
-    )
+    );
 }
 
-export default ClientList
+export default ClientList;

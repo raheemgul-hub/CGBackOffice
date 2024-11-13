@@ -1,0 +1,27 @@
+.icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    
+}
+.icons .active{
+    cursor: pointer;
+    color: green;
+    width: 16px;
+    
+}
+.icons .active:hover{
+    color: #4ed9a8;
+    width: 17px;
+}
+.icons .deactive{
+    cursor: pointer;
+    color: red;
+    width: 16px;
+    
+}
+.icons .deactive:hover{
+    color: #4ed9a8;
+    width: 17px;
+}

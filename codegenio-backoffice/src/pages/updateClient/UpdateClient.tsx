@@ -1,56 +1,62 @@
-// import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import "./AddClient.css"
+
 import { useForm } from "react-hook-form";
-import axios from "axios";
+
+import "../saveProject/SaveProject.css"
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { AddClientProps } from "../../interfaces/Add_Client_Service";
 
-function AddClient() {
 
-    // initializations
+
+function UpdateClient() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm<AddClientProps>();
     const navigate = useNavigate();
     const Base_URL = 'https://mgmt-api.codegenio.com/api'
+   
     const [token, setToken] = useState("");
+    const { id, } = useParams<{ id: string }>();
 
+    
 
     // get token from local storage
     useEffect(() => {
-        const storedData = localStorage.getItem("token");
-        if (storedData) {
-            setToken(storedData);
+        const storedToken = localStorage.getItem("token");
+        if (storedToken) {
+            setToken(storedToken);
         }
     }, []);
 
-    // set data to backend
-    const formSubmit = (data: any) => {
-        if (token) {
-            const userRequest = axios.post(Base_URL + '/admin/client/add', {
-                full_name: data.name,
-                email: data.email,
-                contact_1: data.phone,
-                whatsapp_contact: data.whatsapp,
-                source: data.source
-            }, {
-                headers: {
-                    'Authorization': 'Bearer ' + token
-                }
-            })
-            userRequest.then((response) => {
-                console.log(response)
-                if (response.data.success === true) {
-                    alert(response.data.msg);
-                    reset();
-                    navigate("/clientlist");
-                    localStorage.setItem("client_id", response.data.data.id);
-                    console.log(response.data.data.id)
-                } else {
-                    alert(response.data.errors.general)
 
-                }
-            })
-        }
+
+
+
+
+    const onSubmit = (data: any) => {
+        const userRequest = axios.post(Base_URL + '/admin/client/update', {
+            id: id,
+            full_name: data.name,
+            email: data.email,
+            contact_1: data.phone,
+            whatsapp_contact: data.whatsapp,
+            source: data.source
+        }, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        })
+        userRequest.then((response) => {
+            console.log("updateclient", response)
+            if (response.data.success === true) {
+                alert(response.data.msg);
+                reset();
+                navigate("/clientlist");
+            } else {
+                alert(response.data.errors.general)
+
+            }
+        })
+
     };
     return (
         <div className="mainn">
@@ -85,7 +91,7 @@ function AddClient() {
                 </div>
                 {/* input fields */}
                 <div className="input">
-                    <form onSubmit={handleSubmit(formSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         {/* Name input */}
                         <input
                             type="text"
@@ -136,6 +142,7 @@ function AddClient() {
 
             </div>
         </div>
-    )
-}
-export default AddClient
+    );
+};
+
+export default UpdateClient;
