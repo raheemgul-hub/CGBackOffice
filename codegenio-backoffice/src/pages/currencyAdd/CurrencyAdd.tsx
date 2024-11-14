@@ -1,6 +1,6 @@
 // import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../addClient/AddClient.css"
+import "../client-add/ClientAdd.css"
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";

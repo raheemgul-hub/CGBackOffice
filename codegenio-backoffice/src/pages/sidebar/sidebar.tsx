@@ -1,22 +1,30 @@
 import { Link, Outlet } from 'react-router-dom';
-import { FaSignInAlt, FaUserPlus, FaListAlt, FaSave, FaProjectDiagram, FaDollarSign } from 'react-icons/fa';
 import './Sidebar.css';
+import { FaSignInAlt, FaUserPlus, FaListAlt, FaSave, FaProjectDiagram, FaDollarSign } from 'react-icons/fa';
 
-const Sidebar = () => {
-    
+const Sidebar = ({ isOpen, toggleSidebar }:any) => {
     return (
-        <div className="sidebar">
-            <ul className="sidebar-menu">
-                <Link to="/"><li><FaSignInAlt /> Login</li></Link>
-                <Link to="/addclient"><li><FaUserPlus /> Add Client</li></Link>
-                <Link to="/clientlist"><li><FaListAlt /> Client List</li></Link>
-                <Link to="/saveproject"><li><FaSave /> Save Project</li></Link>
-                <Link to="/projectlist"><li><FaProjectDiagram /> Project List</li></Link>
-                <Link to="/updateproject"><li><FaProjectDiagram /> Project List</li></Link>
-                <Link to="/currencyadd"><li><FaDollarSign /> Add Currency</li></Link>
-                <Link to="/currencylist"><li><FaDollarSign /> Currency List</li></Link>
+        <div className={`sidebar ${isOpen ? 'active' : ''}`}>
+            <h2>Sidebar Menu</h2>
+            <button className='sidebar-close' onClick={toggleSidebar}>Close</button>
+            <ul>
+                <ul className="sidebar-menu">
+                    <Link to="/login" className="sidebar-item"><li><FaSignInAlt /> Login</li></Link>
+
+                    <Link to="/client-add" className="sidebar-item"><li><FaUserPlus /> Client Add</li></Link>
+                    <Link to="/client-list" className="sidebar-item"><li><FaListAlt /> Client List</li></Link>
+
+                    <Link to="/project-save" className="sidebar-item"><li><FaSave />  Project Save</li></Link>
+                    <Link to="/project-list" className="sidebar-item"><li><FaProjectDiagram /> Project List</li></Link>
+
+                    <Link to="/currencyadd" className="sidebar-item"><li><FaDollarSign />  Currency Add</li></Link>
+                    <Link to="/currencylist" className="sidebar-item"><li><FaDollarSign /> Currency List</li></Link>
+                    
+                </ul>
+
+                <Outlet />
+
             </ul>
-            <Outlet />
         </div>
     );
 };

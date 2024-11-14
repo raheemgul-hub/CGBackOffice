@@ -1,4 +1,4 @@
-export interface SaveProjectProps {
+export interface ProjectSaveProps {
   title: string;
   client_id: number;
   award_date: string;

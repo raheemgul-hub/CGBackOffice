@@ -1,15 +1,15 @@
-// import { useState } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
-import "./AddClient.css"
+import "../client-add/ClientAdd.css"
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { AddClientProps } from "../../interfaces/Add_Client_Service";
+import { EmployeeAddProps } from "../../interfaces/Employee_Add_Service";
 
-function AddClient() {
+function EmployeeAdd() {
 
     // initializations
-    const { register, handleSubmit, formState: { errors }, reset } = useForm<AddClientProps>();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<EmployeeAddProps>();
     const navigate = useNavigate();
     const Base_URL = 'https://mgmt-api.codegenio.com/api'
     const [token, setToken] = useState("");
@@ -26,12 +26,14 @@ function AddClient() {
     // set data to backend
     const formSubmit = (data: any) => {
         if (token) {
-            const userRequest = axios.post(Base_URL + '/admin/client/add', {
+            const userRequest = axios.post(Base_URL + '/admin/employee/add', {
                 full_name: data.name,
                 email: data.email,
                 contact_1: data.phone,
-                whatsapp_contact: data.whatsapp,
-                source: data.source
+                contact_2: data.whatsapp,
+                address: data.address,
+                join_date: data.join_date,
+                description: data.description
             }, {
                 headers: {
                     'Authorization': 'Bearer ' + token
@@ -42,8 +44,8 @@ function AddClient() {
                 if (response.data.success === true) {
                     alert(response.data.msg);
                     reset();
-                    navigate("/clientlist");
-                    localStorage.setItem("client_id", response.data.data.id);
+                    navigate("/employee-list");
+                    localStorage.setItem("employee_id", response.data.data.id);
                     console.log(response.data.data.id)
                 } else {
                     alert(response.data.errors.general)
@@ -54,34 +56,10 @@ function AddClient() {
     };
     return (
         <div className="mainn">
-            {/* header */}
-            <div className="header navbar">
-                <div className="logo"><img src="https://codegenio.com/images/logo.svg" alt="logo" /></div>
-                <Link to="/clientlist">
-                    <button className="button">
-                        <div className="button-box">
-                            <span className="button-elem">
-                                <svg viewBox="0 0 46 40" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
-                                    ></path>
-                                </svg>
-                            </span>
-                            <span className="button-elem">
-                                <svg viewBox="0 0 46 40">
-                                    <path
-                                        d="M46 20.038c0-.7-.3-1.5-.8-2.1l-16-17c-1.1-1-3.2-1.4-4.4-.3-1.2 1.1-1.2 3.3 0 4.4l11.3 11.9H3c-1.7 0-3 1.3-3 3s1.3 3 3 3h33.1l-11.3 11.9c-1 1-1.2 3.3 0 4.4 1.2 1.1 3.3.8 4.4-.3l16-17c.5-.5.8-1.1.8-1.9z"
-                                    ></path>
-                                </svg>
-                            </span>
-                        </div>
-                    </button>
-                </Link>
-            </div>
             {/* login page */}
             <div className="login-page">
                 <div className="top">
-                    <h2>Add Client</h2>
+                    <h2>Add Employee</h2>
                 </div>
                 {/* input fields */}
                 <div className="input">
@@ -120,15 +98,28 @@ function AddClient() {
                                 required: { value: true, message: "*WhatsApp number is required." },
                             })}
                         />
-                        {/* source input */}
-                        <input
-                            type="text"
-                            placeholder="Enter Source e.g(freelancer)"
-                            {...register('source', {
-                                required: 'source is required'
+                        {/* address input */}
+                        <textarea
+                            placeholder="Enter Address"
+                            {...register('address', {
+                                required: '*Address is required'
                             })}
                         />
-
+                        {/* join date input */}
+                        <input
+                            type="date"
+                            placeholder=" Enter Join date"
+                            {...register("join_date", {
+                                required: { value: true, message: "*join date is required." },
+                            })}
+                        />
+                        {/* description input */}
+                        <textarea
+                            placeholder="Enter Description"
+                            {...register('description', {
+                                required: '*Description is required'
+                            })}
+                        />
                         <button type="submit">Submit</button>
                     </form>
                 </div>
@@ -138,4 +129,4 @@ function AddClient() {
         </div>
     )
 }
-export default AddClient
+export default EmployeeAdd

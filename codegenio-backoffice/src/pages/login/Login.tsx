@@ -27,7 +27,7 @@ function Login() {
             if (response.data.success === true) {
                 reset()
                 alert(response.data.msg);
-                navigate("/clientlist");
+                navigate("/client-list");
                 localStorage.setItem("token", response.data.data.token);
 
                 formData.push(
@@ -48,16 +48,6 @@ function Login() {
 
     return (
         <div className="main">
-            {/* header */}
-            <div className="header">
-                <div className="logo"><img src="https://codegenio.com/images/logo.svg" alt="logo" /></div>
-                <div className="nav">
-                    <i className="fa-solid fa-globe"></i>
-                    <Link to="/sidebar">
-                        <button type="button"><i className="fa-solid fa-bars"></i></button>
-                    </Link>
-                </div>
-            </div>
             {/* login page */}
             <div className="login-page">
                 {/* top */}
@@ -100,8 +90,8 @@ function Login() {
                     <p>--or sign in with--</p>
                     <div className="icons">
                         <button type="button"><i className="fa-brands fa-google"></i>Google</button>
-                        <button type="button"><i className="fa-brands fa-apple"></i>Apple ID</button>
-                        <button type="button"><i className="fa-brands fa-facebook-f"></i>Facebook</button>
+                        <button type="button"><i className="fa-brands fa-apple"></i>Apple </button>
+                        <button type="button"><i className="fa-brands fa-linkedin"></i>LinkdIn</button>
                     </div>
                     <span>Don't have an account? <Link to="/">Request Now</Link></span>
                 </div>

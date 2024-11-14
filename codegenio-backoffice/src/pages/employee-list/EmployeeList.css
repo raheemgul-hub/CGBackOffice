@@ -1,0 +1,95 @@
+/* Container styling */
+.table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+/* Table header styling */
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.table-header h2 {
+    font-size: 2rem;
+    font-weight: bolder;
+    color:rgb(49, 47, 145);
+}
+
+.add-booking-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-booking-button:hover {
+    background-color: #45a049;
+}
+
+/* Scrollable table container */
+.table-scroll {
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+/* Table styling */
+.booking-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    background-color: #fafafa;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table header styling */
+.booking-table thead {
+    background-color: #f0f4f7;
+}
+
+.booking-table th {
+    font-size: 0.8rem;
+    padding: 10px;
+    color: #555;
+    text-align: left;
+    border-bottom: 2px solid #e0e4e8;
+    border-right: 1px solid #e0e4e8;
+    border-top: 1px solid #e0e4e8;
+}
+
+/* Table row and cell styling */
+.booking-table td {
+    padding: 12px;
+    font-size: 0.9rem;
+    color: #333;
+    border-bottom: 1px solid #e0e4e8;
+    border-right: 1px solid #e0e4e8;
+}
+
+.booking-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Hover effect for table rows */
+.booking-table tbody tr:hover {
+    background-color: #e8f4f8;
+}
+.booking-table .contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}

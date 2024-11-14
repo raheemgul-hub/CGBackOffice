@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import "./ClientList.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import DeleteClient from "../deleteClient/DeleteClient";
+
 import { ClientListProps } from "../../interfaces/Client_List_Service";
-import ClientActivate from "../clientActivate/ClientActivate";
+import ClientActivate from "../client-activate/ClientActivate";
+import ClientDelete from "../client-delete/ClientDelete";
+import ClientDeactivate from "../client-deactivate/ClientDeactivate";
 function ClientList() {
 
     // initializations 
@@ -47,7 +49,7 @@ function ClientList() {
             <div className="review-table-container">
                 <div className="review-header">
                     <h2>Client List</h2>
-                    <Link to="/addclient">
+                    <Link to="/client-add">
                         <button className="add-review-button">Add Client<i className="fa-solid fa-plus add"></i></button>
                     </Link>
                 </div>
@@ -59,6 +61,7 @@ function ClientList() {
                             <th>Email</th>
                             <th>Contact No</th>
                             <th>Whatsapp No</th>
+                            <th>Status</th>
                             <th>Source</th>
                             <th>Actions</th>
                             <th> Activate Status</th>
@@ -72,11 +75,12 @@ function ClientList() {
                                 <td>{data.email}</td>
                                 <td>{data.contact_1}</td>
                                 <td>{data.whatsapp_contact}</td>
+                                <td>{data.status}</td>
                                 <td>{data.source}</td>
                                 <td>
                                     <div className="icons">
-                                        <DeleteClient id={data.id} token={token} />
-                                        <Link to={`/updateclient/${data.id}`}>
+                                        <ClientDelete id={data.id} token={token} />
+                                        <Link to={`/client-update/${data.id}`}>
                                             <i className="fa-solid fa-pen-to-square update"></i>
                                         </Link>
                                     </div>
@@ -84,7 +88,7 @@ function ClientList() {
                                 <td>
                                     <div className="icons">
                                         <ClientActivate id={data.id} token={token} />
-                                        {/* <ProjectDeactivate id={project.id} token={token} /> */}
+                                        <ClientDeactivate id={data.id} token={token} />
                                     </div>
                                 </td>
                             </tr>

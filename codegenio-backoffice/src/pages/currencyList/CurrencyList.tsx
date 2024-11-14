@@ -1,6 +1,6 @@
 // ClientList.tsx
 import { Link } from "react-router-dom";
-import "../addClient/AddClient.css";
+import "../client-add/ClientAdd.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CurrencyAddProps } from "../../interfaces/Currency_Add_Service";

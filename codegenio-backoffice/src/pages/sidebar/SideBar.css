@@ -1,45 +1,109 @@
-/* Sidebar.css */
+/* Sidebar styles */
 .sidebar {
     width: 250px;
     height: 100vh;
-    background-color: #333;
+    background-color: rgb(49, 47, 145);
+    color: #fff;
     position: fixed;
     top: 0;
-    left: 0;
-    padding-top: 20px;
-    z-index: 100;
+    right: -300px;
+    /* Start off-screen */
+    transition: right 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+  
+        font-family: Arial, sans-serif;
 }
 
+.sidebar.active {
+    right: 0;
+    /* Slide in when active */
+}
+
+/* Overlay Effect for Main Content */
+.content.overlay {
+    filter: blur(3px);
+    /* Optional blur effect */
+    pointer-events: none;
+    /* Disable interaction with main content */
+}
+
+.sidebar-toggle-button {
+   
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1100;
+}
+.sidebar-close{ 
+    background-color: rgb(33, 198, 156);
+    letter-spacing: 5px;
+    }
+    .sidebar-close:hover{
+        background-color: rgb(145, 47, 47);
+    }
+/* Sidebar Menu Styles */
 .sidebar-menu {
     list-style-type: none;
     padding: 0;
     margin: 0;
+   
+
+    
 }
 
-.sidebar-menu li {
-    padding: 15px 20px;
-}
-
-.sidebar-menu li a {
-    color: white;
-    text-decoration: none;
+.sidebar-item {
     display: flex;
     align-items: center;
-    transition: background-color 0.3s ease;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.sidebar-menu li a:hover {
-    background-color: #575757;
+.sidebar-item:hover {
+    background-color: #34495e;
+    /* Darker shade on hover */
+    color: #ecf0f1;
+    /* Lighter text color on hover */
 }
 
-.sidebar-menu li a svg {
-    margin-right: 10px;
-    /* Space between icon and text */
-    font-size: 20px;
-    /* Icon size */
+.sidebar-item li {
+    margin-left: 10px;
+    font-weight: 500;
 }
 
-.sidebar-menu li a.active {
-    background-color: #007bff;
-    /* Active link color */
+.sidebar-item i {
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-item:hover i {
+    transform: translateX(5px);
+    /* Slight movement effect on icon */
+}
+
+/* Optional: Add custom styles for specific items */
+.sidebar-item:nth-child(1):hover {
+    background-color: #2980b9;
+    /* Blue color on hover for Login */
+}
+
+.sidebar-item:nth-child(2):hover {
+    background-color: #e74c3c;
+    /* Red color on hover for Add Client */
+}
+
+.sidebar-item:nth-child(3):hover {
+    background-color: #27ae60;
+    /* Green color on hover for Client List */
+}
+
+/* Optional: Active link style */
+.sidebar-item.active {
+    background-color: #f39c12;
+    color: white;
 }

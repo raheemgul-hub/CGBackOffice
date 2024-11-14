@@ -1,14 +1,14 @@
 import axios from "axios";
-import { DeleteClientProps } from "../../interfaces/Delete_Client_Service";
+import { DeleteprojectProps } from "../../interfaces/Delete_project";
 
 
-function DeleteClient({ id, token }: DeleteClientProps) {
+function EmployeeDeActivation({ id, token }: DeleteprojectProps) {
     // initializations
     const Base_URL = 'https://mgmt-api.codegenio.com/api';
 
     // handle delete
-    const handleDelete = () => {
-        axios.post(`${Base_URL}/admin/client/delete`, { id }, {
+    const handleDeactivate = () => {
+        axios.post(`${Base_URL}/admin/employee/deactivate`, { id }, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -20,14 +20,14 @@ function DeleteClient({ id, token }: DeleteClientProps) {
                 alert(response.data.errors.general);
             }
         }).catch((error) => {
-            console.error("Error deleting client:", error);
+            console.error("Error In Deactivate employee:", error);
         });
     };
 
     return (
         // delete button
-        <i onClick={handleDelete} className="fa-solid fa-trash-can delete"></i>
+        <i onClick={handleDeactivate} className="fa-solid fa-xmark deactive"></i>
     );
 }
 
-export default DeleteClient;
+export default EmployeeDeActivation;

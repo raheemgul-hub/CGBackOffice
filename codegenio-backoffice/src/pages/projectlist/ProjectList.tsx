@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import "../clientList/ClientList.css";
+import "../client-list/ClientList.css";
 import "./ProjectList.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { SaveProjectProps } from "../../interfaces/Save_Project_Service";
+import { ProjectSaveProps } from "../../interfaces/Save_Project_Service";
 import DeleteProject from "../deleteproject/DeleteProject";
 import ProjectActivate from "../projectActivate/ProjectActivate";
 import ProjectDeactivate from "../projectDeactivate/ProjectDeactivate";
@@ -14,7 +14,7 @@ function ProjectList() {
     // initializations 
     const Base_URL = 'https://mgmt-api.codegenio.com/api';
     const RelativePath = '/admin/project/list';
-    const [projects, setProjects] = useState<SaveProjectProps[]>([]);
+    const [projects, setProjects] = useState<ProjectSaveProps[]>([]);
     const [token, setToken] = useState("");
 
     //get token from local storage
@@ -50,7 +50,7 @@ function ProjectList() {
             <div className="review-table-container">
                 <div className="review-header">
                     <h2>Project List</h2>
-                    <Link to="/saveproject">
+                    <Link to="/project-save">
                         <button className="add-review-button">Add Project<i className="fa-solid fa-plus add"></i></button>
                     </Link>
                 </div>
@@ -81,7 +81,7 @@ function ProjectList() {
                                 <td>
                                     <div className="icons">
                                         <DeleteProject id={project.id} token={token} />
-                                        <Link to={`/updateproject/${project.id}/${project.client_id}`}>
+                                        <Link to={`/project-update/${project.id}/${project.client_id}`}>
                                         <i className="fa-solid fa-pen-to-square update"></i>
                                         </Link>
                                     </div>

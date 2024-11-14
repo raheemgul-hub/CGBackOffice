@@ -1,15 +1,14 @@
 import axios from "axios";
-import { DeleteprojectProps } from "../../interfaces/Delete_project";
+import { ClientDeleteProps } from "../../interfaces/Delete_Client_Service";
 
 
-
-function DeleteProject({ id, token }: DeleteprojectProps) {
+function ClientDelete({ id, token }: ClientDeleteProps) {
     // initializations
     const Base_URL = 'https://mgmt-api.codegenio.com/api';
 
     // handle delete
     const handleDelete = () => {
-        axios.post(`${Base_URL}/admin/project/delete`, { id }, {
+        axios.post(`${Base_URL}/admin/client/delete`, { id }, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -19,9 +18,10 @@ function DeleteProject({ id, token }: DeleteprojectProps) {
                 window.location.reload();
             } else {
                 alert(response.data.errors.general);
-                console.log(response)
             }
-        })
+        }).catch((error) => {
+            console.error("Error deleting client:", error);
+        });
     };
 
     return (
@@ -30,4 +30,4 @@ function DeleteProject({ id, token }: DeleteprojectProps) {
     );
 }
 
-export default DeleteProject;
+export default ClientDelete;

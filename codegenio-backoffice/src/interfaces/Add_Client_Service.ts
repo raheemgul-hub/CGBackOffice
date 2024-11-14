@@ -1,4 +1,4 @@
-export interface AddClientProps {
+export interface ClientAddProps {
   name: string;
   email: string;
   phone: string;
