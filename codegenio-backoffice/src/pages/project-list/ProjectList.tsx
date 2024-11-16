@@ -4,9 +4,11 @@ import "./ProjectList.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ProjectSaveProps } from "../../interfaces/Save_Project_Service";
-import DeleteProject from "../deleteproject/DeleteProject";
-import ProjectActivate from "../projectActivate/ProjectActivate";
-import ProjectDeactivate from "../projectDeactivate/ProjectDeactivate";
+import ProjectDelete from "../project-delete/ProjectDelete";
+import ProjectActivate from "../project-activate/ProjectActivate";
+import ProjectDeactivate from "../project-deactivate/ProjectDeactivate";
+
+
 
 
 function ProjectList() {
@@ -80,7 +82,7 @@ function ProjectList() {
                                 <td>{project.initial_agreed_budget}</td>
                                 <td>
                                     <div className="icons">
-                                        <DeleteProject id={project.id} token={token} />
+                                        <ProjectDelete id={project.id} token={token} />
                                         <Link to={`/project-update/${project.id}/${project.client_id}`}>
                                         <i className="fa-solid fa-pen-to-square update"></i>
                                         </Link>

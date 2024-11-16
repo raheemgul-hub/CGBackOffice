@@ -2,13 +2,13 @@ import axios from "axios";
 import { DeleteprojectProps } from "../../interfaces/Delete_project";
 
 
-function EmployeeDeActivation({ id, token }: DeleteprojectProps) {
+function CurrencyDeactivate({ id, token }: DeleteprojectProps) {
     // initializations
     const Base_URL = 'https://mgmt-api.codegenio.com/api';
 
     // handle delete
     const handleDeactivate = () => {
-        axios.post(`${Base_URL}/admin/employee/deactivate`, { id }, {
+        axios.post(`${Base_URL}/admin/currency/deactivate`, { id }, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -20,7 +20,7 @@ function EmployeeDeActivation({ id, token }: DeleteprojectProps) {
                 alert(response.data.errors.general);
             }
         }).catch((error) => {
-            console.error("Error In Deactivate employee:", error);
+            console.error("Error In Deactivate currency:", error);
         });
     };
 
@@ -30,4 +30,4 @@ function EmployeeDeActivation({ id, token }: DeleteprojectProps) {
     );
 }
 
-export default EmployeeDeActivation;
+export default CurrencyDeactivate;

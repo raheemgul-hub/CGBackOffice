@@ -3,7 +3,7 @@ import { DeleteprojectProps } from "../../interfaces/Delete_project";
 
 
 
-function DeleteProject({ id, token }: DeleteprojectProps) {
+function ProjectDelete({ id, token }: DeleteprojectProps) {
     // initializations
     const Base_URL = 'https://mgmt-api.codegenio.com/api';
 
@@ -30,4 +30,4 @@ function DeleteProject({ id, token }: DeleteprojectProps) {
     );
 }
 
-export default DeleteProject;
+export default ProjectDelete;

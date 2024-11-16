@@ -1,6 +1,6 @@
 
 import { Link, useNavigate } from "react-router-dom";
-import "../client-add/ClientAdd.css"
+import "./EmployeeAdd.css"
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -55,34 +55,36 @@ function EmployeeAdd() {
         }
     };
     return (
-        <div className="mainn">
-            {/* login page */}
-            <div className="login-page">
-                <div className="top">
+        <div className="employee-container">
+            {/* add employee page */}
+            <div className="employee-form">
+                <div className="form-header">
                     <h2>Add Employee</h2>
                 </div>
                 {/* input fields */}
-                <div className="input">
+                <div className="form-input">
                     <form onSubmit={handleSubmit(formSubmit)}>
                         {/* Name input */}
                         <input
                             type="text"
-                            placeholder="Enter Full Name "
+                            placeholder="Enter Full Name"
                             {...register('name', {
                                 required: 'Name is required'
                             })}
                         />
-                        {errors.name && <p className="error">{errors.name.message}</p>}
+                        {errors.name && <p className="form-error">{errors.name.message}</p>}
+
                         {/* email input */}
                         <input
                             type="text"
-                            placeholder="Enter Email "
+                            placeholder="Enter Email"
                             {...register('email', {
                                 required: 'Email is required'
                             })}
                         />
-                        {errors.email && <p className="error">{errors.email.message}</p>}
-                        {/* phon number input */}
+                        {errors.email && <p className="form-error">{errors.email.message}</p>}
+
+                        {/* phone number input */}
                         <input
                             type="tel"
                             placeholder="Enter Phone Number"
@@ -90,7 +92,8 @@ function EmployeeAdd() {
                                 required: { value: true, message: "*Phone number is required." },
                             })}
                         />
-                        {/* whatsApp number input */}
+
+                        {/* WhatsApp number input */}
                         <input
                             type="tel"
                             placeholder="Enter WhatsApp Number"
@@ -98,6 +101,7 @@ function EmployeeAdd() {
                                 required: { value: true, message: "*WhatsApp number is required." },
                             })}
                         />
+
                         {/* address input */}
                         <textarea
                             placeholder="Enter Address"
@@ -105,14 +109,16 @@ function EmployeeAdd() {
                                 required: '*Address is required'
                             })}
                         />
+
                         {/* join date input */}
                         <input
                             type="date"
-                            placeholder=" Enter Join date"
+                            placeholder="Enter Join Date"
                             {...register("join_date", {
-                                required: { value: true, message: "*join date is required." },
+                                required: { value: true, message: "*Join date is required." },
                             })}
                         />
+
                         {/* description input */}
                         <textarea
                             placeholder="Enter Description"
@@ -120,13 +126,13 @@ function EmployeeAdd() {
                                 required: '*Description is required'
                             })}
                         />
+
                         <button type="submit">Submit</button>
                     </form>
                 </div>
-
-
             </div>
         </div>
+
     )
 }
 export default EmployeeAdd

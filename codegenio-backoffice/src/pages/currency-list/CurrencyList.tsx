@@ -4,9 +4,10 @@ import "../client-add/ClientAdd.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CurrencyAddProps } from "../../interfaces/Currency_Add_Service";
-import DeleteCurrency from "../deleteCurrency/DeleteCurrency";
-import CurrencyActivation from "../currencyActivation/CurrencyActivation";
-import CurrencyDeactivation from "../currencyDeactivation/CurrencyDeactivation";
+import CurrencyDelete from "../currency-delete/CurrencyDelete";
+
+import CurrencyDeactivate from "../currency-deactivate/CurrencyDeactivate";
+import CurrencyActivate from "../currency-activate/CurrencyActivation";
 
 function CurrencyList() {
 
@@ -49,7 +50,7 @@ function CurrencyList() {
             <div className="review-table-container">
                 <div className="review-header">
                     <h2>Currency List</h2>
-                    <Link to="/currencyadd">
+                    <Link to="/currency-add">
                         <button className="add-review-button">Add Currency<i className="fa-solid fa-plus add"></i></button>
                     </Link>
                 </div>
@@ -74,16 +75,16 @@ function CurrencyList() {
                             
                                 <td>
                                     <div className="icons">
-                                        <DeleteCurrency id={data.id} token={token} />
-                                        <Link to={`/currencyupdate/${data.id}`}>
+                                        <CurrencyDelete id={data.id} token={token} />
+                                        <Link to={`/currency-update/${data.id}`}>
                                             <i className="fa-solid fa-pen-to-square update"></i>
                                         </Link>
                                     </div>
                                 </td>
                                 <td>
                                     <div className="icons">
-                                        <CurrencyActivation id={data.id} token={token} />
-                                        <CurrencyDeactivation id={data.id} token={token} />
+                                        <CurrencyActivate id={data.id} token={token} />
+                                        <CurrencyDeactivate id={data.id} token={token} />
                                     </div>
                                 </td>
                             </tr>

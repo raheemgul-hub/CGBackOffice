@@ -3,7 +3,7 @@ import { DeleteprojectProps } from "../../interfaces/Delete_project";
 
 
 
-function EmployeeActivation({ id, token }: DeleteprojectProps) {
+function EmployeeActivate({ id, token }: DeleteprojectProps) {
   // initializations
   const Base_URL = "https://mgmt-api.codegenio.com/api";
 
@@ -38,4 +38,4 @@ function EmployeeActivation({ id, token }: DeleteprojectProps) {
   );
 }
 
-export default EmployeeActivation;
+export default EmployeeActivate;

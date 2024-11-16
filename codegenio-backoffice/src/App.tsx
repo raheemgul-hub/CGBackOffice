@@ -1,21 +1,24 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Login from './pages/login/Login';
-import ClientUpdate from './pages/client-update/ClientUpdate';
-import CurrencyAdd from './pages/currencyAdd/CurrencyAdd';
-import CurrencyList from './pages/currencyList/CurrencyList';
-import CurrencyUpdate from './pages/currency-update/CurrencyUpdate';
-import EmployeeList from './pages/employee-list/EmployeeList';
-import EmployeeAdd from './pages/employee-add/EmployeeAdd';
-import EmployeeUpdate from './pages/employee-update/EmployeeUpdate';
 import { useState } from 'react';
 import Sidebar from './pages/sidebar/sidebar';
 import NavBar from './pages/nav-bar/NavBar';
 import ClientList from './pages/client-list/ClientList';
 import ClientAdd from './pages/client-add/ClientAdd';
+import ClientUpdate from './pages/client-update/ClientUpdate';
+import CurrencyList from './pages/currency-list/CurrencyList';
+import CurrencyAdd from './pages/currency-add/CurrencyAdd';
+import CurrencyUpdate from './pages/currency-update/CurrencyUpdate';
+import EmployeeList from './pages/employee-list/EmployeeList';
+import EmployeeAdd from './pages/employee-add/EmployeeAdd';
+import EmployeeUpdate from './pages/employee-update/EmployeeUpdate';
 import ProjectSave from './pages/project-save/ProjectSave';
+import ProjectList from './pages/project-list/ProjectList';
 import ProjectUpdate from './pages/project-update/ProjectUpdate';
-import ProjectList from './pages/projectlist/ProjectList';
+import EmployeeDetail from './pages/employee-detail/EmployeeDetail';
+import WelcomePage from './pages/welcome-page/WelcomePage';
+
 
 function App() {
   // State to control sidebar visibility
@@ -40,19 +43,29 @@ function App() {
       <div className={isSidebarOpen ? 'content overlay' : 'content'}>
         <Routes>
           <Route path="/" element={<NavBar />} >
+            <Route index element={<WelcomePage />}></Route>
             <Route path="/login" element={<Login />} />
+            {/* client routers */}
             <Route path="/client-list" element={<ClientList />} />
             <Route path="/client-add" element={<ClientAdd />} />
-            <Route path="/project-save" element={<ProjectSave />} />
-            <Route path="/project-list" element={<ProjectList />} />
-            <Route path="/project-update/:id/:client_id" element={<ProjectUpdate />} />
             <Route path="/client-update/:id" element={<ClientUpdate />} />
-            <Route path="/currencyadd" element={<CurrencyAdd />} />
-            <Route path="/currencylist" element={<CurrencyList />} />
-            <Route path="/currencyupdate/:id" element={<CurrencyUpdate />} />
+
+            {/* currency routers */}
+            <Route path="/currency-list" element={<CurrencyList />} />
+            <Route path="/currency-add" element={<CurrencyAdd />} />
+            <Route path="/currency-update/:id" element={<CurrencyUpdate />} />
+
+            {/* employee routers */}
             <Route path="/employee-list" element={<EmployeeList />} />
             <Route path="/employee-add" element={<EmployeeAdd />} />
             <Route path="/employee-update/:id" element={<EmployeeUpdate />} />
+            <Route path='/employee-detail/:id' element={<EmployeeDetail />} />
+
+
+            {/* project routers */}
+            <Route path="/project-save" element={<ProjectSave />} />
+            <Route path="/project-list" element={<ProjectList />} />
+            <Route path="/project-update/:id/:client_id" element={<ProjectUpdate />} />
           </Route>
         </Routes>
       </div>

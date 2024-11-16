@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { EmployeeListProps } from "../../interfaces/Employee_List_service";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import EmployeeActivation from "../employee-activation/EmployeeActivation";
-import EmployeeDeActivation from "../employee-deactivation/EmployeeDeActivation";
+
 import EmployeeDelete from "../employee-delete/EmployeeDelete";
+import EmployeeActivate from "../employee-activate/EmployeeActivate";
+import EmployeeDeactivate from "../employee-deactivate/EmployeeDeactivate";
 
 function EmployeeList() {
 
@@ -56,15 +57,8 @@ function EmployeeList() {
                         <tr>
                             <th>ID</th>
                             <th>Full Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Contacts</th>
-                            <th>Address</th>
-                            <th>Join Date</th>
                             <th>Status</th>
-                            <th>Description</th>
-                            <th>Account Status</th>
-                            <th>Email Verified</th>
+                            <th>Detail</th>
                             <th>status</th>
                             <th>Actions</th>
                         </tr>
@@ -74,19 +68,16 @@ function EmployeeList() {
                             <tr key={employee.id}>
                                 <td>{employee.id}</td>
                                 <td>{employee.full_name}</td>
-                                <td>{employee.email}</td>
-                                <td>{employee.gender}</td>
-                                <td className="contact">{employee.contact_1}<br />{employee.contact_2}</td>
-                                <td>{employee.address}</td>
-                                <td>{employee.join_date}</td>
                                 <td>{employee.status}</td>
-                                <td>{employee.description}</td>
-                                <td>{employee.account_status}</td>
-                                <td>{employee.email_verified_at ? "Verified" : "Not Verified"}</td>
+                                <td>
+                                <Link to={`/employee-detail/${employee.id}`}>
+                                        <div className="icons">  <i className="fa-solid fa-eye"></i></div>   
+                                </Link>
+                                </td>
                                 <td>
                                     <div className="icons">
-                                        <EmployeeActivation id={employee.id} token={token} />
-                                        <EmployeeDeActivation id={employee.id} token={token} />
+                                        <EmployeeActivate id={employee.id} token={token} />
+                                        <EmployeeDeactivate id={employee.id} token={token} />
                                     </div>
                                 </td>
                                 <td>

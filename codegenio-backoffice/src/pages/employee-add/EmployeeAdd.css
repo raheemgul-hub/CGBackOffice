@@ -1,91 +1,18 @@
-
-.button {
-    display: block;
-    position: relative;
-    width: 56px;
-    height: 56px;
-    margin: 0;
-    overflow: hidden;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
-    border: 0;
-}
-
-.button:before,
-.button:after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    inset: 7px;
-}
-
-.button:before {
-    border: 4px solid #f0eeef;
-    transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
-        transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
-}
-
-.button:after {
-    border: 4px solid #96daf0;
-    transform: scale(1.3);
-    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    opacity: 0;
-}
-
-.button:hover:before,
-.button:focus:before {
-    opacity: 0;
-    transform: scale(0.7);
-    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
-        transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.button:hover:after,
-.button:focus:after {
-    opacity: 1;
-    transform: scale(1);
-    transition: opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
-        transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
-}
-
-.button-box {
-    display: flex;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.button-elem {
-    display: block;
-    width: 20px;
-    height: 20px;
-    margin: 17px 18px 0 18px;
-    transform: rotate(180deg);
-    fill: #f0eeef;
-}
-
-.button:hover .button-box,
-.button:focus .button-box {
-    transition: 0.4s;
-    transform: translateX(-56px);
-}
 body {
     margin: 0px;
     padding: 0px;
     font-family: sans-serif;
 }
 
-.client-container {
+.employee-container {
     margin: 0px;
-    padding-top: 20px;
+    padding-top: 10px;
     width: 100%;
     background-color: rgb(33, 198, 156);
     height: 100vh;
 }
 
-.client-form {
+.employee-form {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -119,14 +46,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 }
 
-.form-input input {
+.form-input input,
+.form-input textarea {
     margin-bottom: 15px;
     /* Increased space between inputs */
     width: 100%;
     /* Make the inputs take the full width of the form */
-    max-width: 400px;
+    max-width: 420px;
     /* Set a max width for inputs */
     padding: 12px;
     border: 0.5px solid rgba(0, 0, 0, 0.2);
@@ -134,17 +63,25 @@ body {
     font-size: 14px;
 }
 
-.form-input input::placeholder {
+.form-input input::placeholder,
+.form-input textarea::placeholder {
     font-size: 14px;
     /* Increased placeholder text size */
 }
 
-.form-input .client-add {
+.form-input input[type="date"] {
+    padding: 10px;
+    /* Adjusted padding for date input */
+}
+
+
+
+.form-input button {
     width: 100%;
     /* Full width for the submit button */
-    max-width: 445px;
+    max-width: 400px;
     /* Max width for the button */
-    padding: 16px;
+    padding: 12px;
     background-color: rgb(49, 47, 145);
     border: none;
     color: white;
@@ -154,7 +91,7 @@ body {
     /* Increased font size for button */
 }
 
-.form-input .client-add button:hover {
+.form-input button:hover {
     background-color: rgb(33, 198, 156);
     /* Hover effect */
 }

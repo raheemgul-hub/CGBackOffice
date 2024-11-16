@@ -1,7 +1,7 @@
 /* Sidebar styles */
 .sidebar {
     width: 250px;
-    height: 100vh;
+    height: 100%;
     background-color: rgb(49, 47, 145);
     color: #fff;
     position: fixed;
@@ -22,7 +22,7 @@
 
 /* Overlay Effect for Main Content */
 .content.overlay {
-    filter: blur(3px);
+    /* filter: blur(3px); */
     /* Optional blur effect */
     pointer-events: none;
     /* Disable interaction with main content */
@@ -56,11 +56,12 @@
 
 .sidebar-item {
     display: flex;
-    align-items: center;
-    padding: 15px;
+    align-items: start;
+    padding: 10px;
+    padding-left: 0%;
     text-decoration: none;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     transition: background-color 0.3s, color 0.3s;
 }
 

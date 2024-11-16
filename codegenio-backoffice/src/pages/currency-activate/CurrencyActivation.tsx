@@ -2,14 +2,13 @@ import axios from "axios";
 import { DeleteprojectProps } from "../../interfaces/Delete_project";
 
 
-
-function DeleteCurrency({ id, token }: DeleteprojectProps) {
+function CurrencyActivate({ id, token }: DeleteprojectProps) {
     // initializations
     const Base_URL = 'https://mgmt-api.codegenio.com/api';
 
     // handle delete
-    const handleDelete = () => {
-        axios.post(`${Base_URL}/admin/currency/delete`, { id }, {
+    const handleActivate = () => {
+        axios.post(`${Base_URL}/admin/currency/activate`, { id }, {
             headers: {
                 'Authorization': 'Bearer ' + token
             }
@@ -21,14 +20,14 @@ function DeleteCurrency({ id, token }: DeleteprojectProps) {
                 alert(response.data.errors.general);
             }
         }).catch((error) => {
-            console.error("Error deleting Currency:", error);
+            console.error("Error Activate Currency:", error);
         });
     };
 
     return (
         // delete button
-        <i onClick={handleDelete} className="fa-solid fa-trash-can delete"></i>
+        <i onClick={handleActivate} className="fa-solid fa-check active"></i>
     );
 }
 
-export default DeleteCurrency;
+export default CurrencyActivate;

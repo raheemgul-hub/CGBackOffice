@@ -14,11 +14,17 @@ const Sidebar = ({ isOpen, toggleSidebar }:any) => {
                     <Link to="/client-add" className="sidebar-item"><li><FaUserPlus /> Client Add</li></Link>
                     <Link to="/client-list" className="sidebar-item"><li><FaListAlt /> Client List</li></Link>
 
-                    <Link to="/project-save" className="sidebar-item"><li><FaSave />  Project Save</li></Link>
+
+
+                    <Link to="/project-save" className="sidebar-item"><li><FaSave />  Project Add</li></Link>
                     <Link to="/project-list" className="sidebar-item"><li><FaProjectDiagram /> Project List</li></Link>
 
-                    <Link to="/currencyadd" className="sidebar-item"><li><FaDollarSign />  Currency Add</li></Link>
-                    <Link to="/currencylist" className="sidebar-item"><li><FaDollarSign /> Currency List</li></Link>
+                    <Link to="/currency-add" className="sidebar-item"><li><FaDollarSign />  Currency Add</li></Link>
+                    <Link to="/currency-list" className="sidebar-item"><li><FaDollarSign /> Currency List</li></Link>
+
+                    <Link to="/employee-add" className='sidebar-item'><li><FaUserPlus /> Employee Add</li></Link>
+                    <Link to="employee-list" className='sidebar-item'><li><FaListAlt /> Employee List</li></Link>
+                    <Link to="employee-detail/:id" className='sidebar-item'><li><FaListAlt /> Employee Detail</li></Link>
                     
                 </ul>
 

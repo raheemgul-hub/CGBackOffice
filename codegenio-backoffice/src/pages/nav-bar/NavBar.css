@@ -1,0 +1,111 @@
+/* Container with the specified colors and gradient effects */
+.container {
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.15) 30%,
+            rgba(255, 255, 255, 0.3) 32%,
+            rgba(255, 255, 255, 0) 33%) 0 0,
+        radial-gradient(rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.1) 11%,
+            rgba(255, 255, 255, 0.3) 13%,
+            rgba(255, 255, 255, 0) 14%) 0 0,
+        radial-gradient(rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 17%,
+            rgba(255, 255, 255, 0.43) 19%,
+            rgba(255, 255, 255, 0) 20%) 0 110px,
+        radial-gradient(rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 11%,
+            rgba(255, 255, 255, 0.4) 13%,
+            rgba(255, 255, 255, 0) 14%) -130px -170px,
+        radial-gradient(rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.2) 11%,
+            rgba(255, 255, 255, 0.4) 13%,
+            rgba(255, 255, 255, 0) 14%) 130px 370px,
+        radial-gradient(rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0.1) 11%,
+            rgba(255, 255, 255, 0.2) 13%,
+            rgba(255, 255, 255, 0) 14%) 0 0,
+        linear-gradient(45deg,
+            rgb(49, 47, 145) 0%,
+            /* Rich blue */
+            rgb(33, 198, 156) 20%,
+            /* Vibrant teal */
+            rgb(47, 90, 230) 40%,
+            /* Soft blue */
+            rgb(33, 145, 125) 60%,
+            /* Muted teal */
+            rgb(20, 105, 250) 80%,
+            /* Light blue */
+            rgb(33, 198, 156) 100%);
+    /* Repeating teal to balance the palette */
+    background-size: 470px 470px, 970px 970px, 410px 410px, 610px 610px,
+        530px 530px, 730px 730px, 100% 100%;
+    background-color: rgb(49, 47, 145);
+    /* Using rich blue as the base background */
+}
+
+/* Container for the welcome message */
+.welcome-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    color: rgb(49, 47, 145);
+    /* Matching with your specified color */
+    background-color: transparent;
+    /* Optional: Change this background to complement the text */
+    padding: 0 20px;
+}
+
+/* Animation for the welcome text */
+.welcome-text {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgb(49, 47, 145);
+    /* Rich blue for "Welcome" */
+    animation: fadeInUp 2s ease-out forwards;
+    /* 'forwards' ensures text stays visible after animation */
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Animation for the welcome message */
+.welcome-message {
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    /* White color for better contrast */
+    max-width: 600px;
+    line-height: 1.5;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2.5s ease-out 0.5s forwards;
+    /* 'forwards' keeps the text visible after animation */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Keyframe animation for fade and slide */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add hover transition to welcome text for more interaction */
+.welcome-text:hover {
+    color: rgb(33, 198, 156);
+    /* Change color on hover */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}

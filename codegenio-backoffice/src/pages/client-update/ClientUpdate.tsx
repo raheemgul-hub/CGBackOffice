@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 
 import "../project-save/ProjectSave.css"
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { ClientAddProps } from "../../interfaces/Add_Client_Service";
@@ -64,7 +64,7 @@ function ClientUpdate() {
             {/* login page */}
             <div className="login-page">
                 <div className="top">
-                    <h2>Add Client</h2>
+                    <h2>Update Client</h2>
                 </div>
                 {/* input fields */}
                 <div className="input">

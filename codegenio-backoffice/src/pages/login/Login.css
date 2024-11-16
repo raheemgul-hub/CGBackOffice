@@ -65,7 +65,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
-    width: 280px;
+    width: 400px;
     background-color: white;
     border-radius: 10px;
     padding: 20px;
@@ -101,11 +101,12 @@ body {
 
 .login-page .input input ,textarea{
     margin-bottom: 10px;
-    width: 260px;
+    width: 380px;
     padding: 8px;
+   
     border: 0.5px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .login-page .input input::placeholder {
@@ -123,7 +124,7 @@ body {
 }
 
 .login-page .input button {
-    width: 280px;
+    width: 400px;
     padding: 10px;
     background-color: rgb(49, 47, 145);
     border: none;
@@ -156,19 +157,19 @@ body {
 }
 
 .bottom .icons button {
-    width: 80px;
-    padding: 5px 10px;
+    width: 120px;
+    padding: 10px 15px;
     background: transparent;
     border: 0.5px solid rgba(0, 0, 0, 0.2);
  color:rgb(49, 47, 145);
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 16px;
 
 }
 
 .bottom .icons i {
-    font-size: 10px;
+    font-size: 16px;
     padding-right: 5px;
 }
 

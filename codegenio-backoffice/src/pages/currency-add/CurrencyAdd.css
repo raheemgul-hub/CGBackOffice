@@ -1,0 +1,106 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.currency-container {
+    margin: 0px;
+    padding-top: 20px;
+    width: 100%;
+    background-color: rgb(33, 198, 156);
+    height: 100vh;
+}
+
+.currency-page {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 400px;
+    /* Increased the width of the form */
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    /* Increased padding for more space inside */
+}
+
+.currency-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.currency-header h2 {
+    line-height: 0px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.currency-header p {
+    width: 200px;
+    text-align: center;
+    font-size: 12px;
+    font-family: sans-serif;
+}
+
+.currency-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.currency-input input,
+textarea {
+    margin-bottom: 15px;
+    /* Increased margin for more spacing between inputs */
+    width: 360px;
+    /* Increased the width of the input fields */
+    padding: 12px;
+    /* Increased padding for more comfortable input area */
+    border: 0.5px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.currency-input input::placeholder {
+    font-size: 14px;
+    /* Slightly larger placeholder text */
+}
+
+.currency-input .link {
+    text-decoration: none;
+    color: blue;
+    text-align: start;
+    padding-top: 5px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    /* Increased font size */
+    margin-left: -140px;
+}
+
+.currency-input button {
+    width: 390px;
+    /* Increased button width */
+    padding: 12px;
+    /* Increased padding for the button */
+    background-color: rgb(49, 47, 145);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    /* Increased font size for button */
+    
+}
+
+/* Error Message Styling */
+.error-message {
+    color: red;
+    font-size: 14px;
+    /* Increased font size */
+    margin-top: 5px;
+    font-style: italic;
+    text-align: left;
+}

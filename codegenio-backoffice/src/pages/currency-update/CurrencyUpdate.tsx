@@ -2,7 +2,7 @@
 import { useForm } from "react-hook-form";
 
 import "../project-save/ProjectSave.css"
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CurrencyAddProps } from "../../interfaces/Currency_Add_Service";
@@ -42,7 +42,7 @@ function CurrencyUpdate() {
             if (response.data.success === true) {
                 alert(response.data.msg);
                 reset();
-                navigate("/currencylist");
+                navigate("/currency-list");
             } else {
                 alert(response.data.errors.general)
 
