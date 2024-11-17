@@ -1,5 +1,6 @@
 import axios from "axios";
 import { DeleteprojectProps } from "../../interfaces/Delete_project";
+import toast from "react-hot-toast";
 
 
 
@@ -21,10 +22,10 @@ function EmployeeActivate({ id, token }: DeleteprojectProps) {
       )
       .then((response) => {
         if (response.data.success) {
-          alert(response.data.msg);
+          toast.success(response.data.msg);
           window.location.reload();
         } else {
-          alert(response.data.errors.general);
+          toast.error(response.data.errors.general);
         }
       })
       .catch((error) => {

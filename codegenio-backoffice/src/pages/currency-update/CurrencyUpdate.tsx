@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { CurrencyAddProps } from "../../interfaces/Currency_Add_Service";
+import toast from "react-hot-toast";
 
 
 
@@ -40,11 +41,11 @@ function CurrencyUpdate() {
         userRequest.then((response) => {
             console.log("updatecurrency", response)
             if (response.data.success === true) {
-                alert(response.data.msg);
+                toast.success(response.data.msg);
                 reset();
                 navigate("/currency-list");
             } else {
-                alert(response.data.errors.general)
+                toast.error(response.data.errors.general)
 
             }
         })

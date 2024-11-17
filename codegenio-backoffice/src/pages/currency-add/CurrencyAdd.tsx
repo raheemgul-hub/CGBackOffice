@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CurrencyAddProps } from "../../interfaces/Currency_Add_Service";
+import toast from "react-hot-toast";
 
 function CurrencyAdd() {
 
@@ -37,13 +38,13 @@ function CurrencyAdd() {
             userRequest.then((response) => {
                 console.log(response)
                 if (response.data.success === true) {
-                    alert(response.data.msg);
+                    toast.success(response.data.msg);
                     reset();
                     navigate("/currency-list");
                     localStorage.setItem("currency_id", response.data.data.id);
                     console.log(response.data.data.id)
                 } else {
-                    alert(response.data.errors.general)
+                    toast.error(response.data.errors.general)
 
                 }
             })

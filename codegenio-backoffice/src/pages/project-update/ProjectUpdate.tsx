@@ -6,6 +6,7 @@ import { ProjectSaveProps } from "../../interfaces/Save_Project_Service";
 import {  useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 
 
@@ -58,11 +59,11 @@ function ProjectUpdate() {
         userRequest.then((response) => {
             console.log("project-Update", response)
             if (response.data.success === true) {
-                alert(response.data.msg);
+                toast.success(response.data.msg);
                 reset();
                 navigate("/project-list");
             } else {
-                alert(response.data.errors.general)
+                toast.error(response.data.errors.general)
 
             }
         })

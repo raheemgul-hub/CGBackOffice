@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { LoginProps } from "../../interfaces/Login_Service";
+import toast from "react-hot-toast";
 
 function Login() {
 
@@ -26,7 +27,8 @@ function Login() {
 
             if (response.data.success === true) {
                 reset()
-                alert(response.data.msg);
+                toast.success(response.data.msg)
+                // toast.error(response.data.msg);
                 navigate("/client-list");
                 localStorage.setItem("token", response.data.data.token);
 
@@ -39,7 +41,7 @@ function Login() {
                 localStorage.setItem("Data", JSON.stringify(formData))
 
             } else {
-                alert(response.data.errors.general);
+                toast.error(response.data.errors.general);
             }
         })
 

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { EmployeeAddProps } from "../../interfaces/Employee_Add_Service";
+import toast from "react-hot-toast";
 
 function EmployeeAdd() {
 
@@ -42,13 +43,13 @@ function EmployeeAdd() {
             userRequest.then((response) => {
                 console.log(response)
                 if (response.data.success === true) {
-                    alert(response.data.msg);
+                    toast.success(response.data.msg);
                     reset();
                     navigate("/employee-list");
                     localStorage.setItem("employee_id", response.data.data.id);
                     console.log(response.data.data.id)
                 } else {
-                    alert(response.data.errors.general)
+                    toast.error(response.data.errors.general)
 
                 }
             })

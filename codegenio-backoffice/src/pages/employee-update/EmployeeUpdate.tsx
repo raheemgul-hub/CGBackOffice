@@ -6,6 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { EmployeeAddProps } from "../../interfaces/Employee_Add_Service";
+import toast from "react-hot-toast";
 
 
 
@@ -51,11 +52,11 @@ function ClientUpdate() {
         userRequest.then((response) => {
             console.log("client-update", response)
             if (response.data.success === true) {
-                alert(response.data.msg);
+                toast.success(response.data.msg);
                 reset();
                 navigate("/employee-list");
             } else {
-                alert(response.data.errors.general)
+                toast.error(response.data.errors.general)
 
             }
         })

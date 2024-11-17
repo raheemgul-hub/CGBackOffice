@@ -18,6 +18,7 @@ import ProjectList from './pages/project-list/ProjectList';
 import ProjectUpdate from './pages/project-update/ProjectUpdate';
 import EmployeeDetail from './pages/employee-detail/EmployeeDetail';
 import WelcomePage from './pages/welcome-page/WelcomePage';
+import { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
           </Route>
         </Routes>
       </div>
+      <div><Toaster /></div>
     </BrowserRouter>
   );
 }

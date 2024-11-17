@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ClientDeleteProps } from "../../interfaces/Delete_Client_Service";
+import toast from "react-hot-toast";
 
 
 function ClientDelete({ id, token }: ClientDeleteProps) {
@@ -14,10 +15,10 @@ function ClientDelete({ id, token }: ClientDeleteProps) {
             }
         }).then((response) => {
             if (response.data.success) {
-                alert(response.data.msg);
+            toast.success(response.data.msg);
                 window.location.reload();
             } else {
-                alert(response.data.errors.general);
+                toast.error(response.data.errors.general);
             }
         }).catch((error) => {
             console.error("Error deleting client:", error);
