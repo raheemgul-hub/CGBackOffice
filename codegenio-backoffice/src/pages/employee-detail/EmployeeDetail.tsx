@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { EmployeeDetailProps } from "../../interfaces/Employee_List_service";
 import { useParams } from "react-router-dom";
 import "./EmployeeDetail.css"
+import toast from "react-hot-toast";
 
 function EmployeeDetail() {
     const Base_URL = "https://mgmt-api.codegenio.com/api";
@@ -49,35 +50,24 @@ function EmployeeDetail() {
 
     // Loading and error handling
     if (loading) {
-        return <div className="loader-container">Loading employee details...
-
-            <div className="loader">
-                <div className="circle">
-                    <div className="dot"></div>
-                    <div className="outline"></div>
-                </div>
-                <div className="circle">
-                    <div className="dot"></div>
-                    <div className="outline"></div>
-                </div>
-                <div className="circle">
-                    <div className="dot"></div>
-                    <div className="outline"></div>
-                </div>
-                <div className="circle">
-                    <div className="dot"></div>
-                    <div className="outline"></div>
+        return <div className="loader-container">
+           
+            <div className="center-body">
+                <div className="loader-circle-9">
+                    Loading
+                    <span></span>
                 </div>
             </div>
+
         </div>;
     }
 
     if (error) {
-        return <div className="error">{error}</div>;
+        return <div>{toast.error(error)}</div>;
     }
 
     if (employees.length === 0) {
-        return <div>No employee details found.</div>;
+        return <div>{toast.error("No employee details found.")}</div>;
     }
 
     return (

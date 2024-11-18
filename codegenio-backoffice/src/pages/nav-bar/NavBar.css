@@ -111,7 +111,7 @@
 
 /* Add hover transition to welcome text for more interaction */
 .welcome-text:hover {
-    color: rgb(33, 198, 156);
+    color: rgb(48, 3, 3);
     /* Change color on hover */
     cursor: pointer;
     transition: color 0.3s ease;
