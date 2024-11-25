@@ -35,8 +35,8 @@ function Login() {
                 formData.push(
                     {
                         email: response.data.data.email,
-                        password:""
-                                     }
+                        password: ""
+                    }
                 )
                 localStorage.setItem("Data", JSON.stringify(formData))
 

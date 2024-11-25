@@ -45,7 +45,7 @@ function ClientAdd() {
                     navigate("/client-list");
                     localStorage.setItem("client_id", response.data.data.id);
                     console.log(response.data.data.id)
-                    
+
                 } else {
                     toast.error(response.data.errors.general)
 
